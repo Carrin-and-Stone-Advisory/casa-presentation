@@ -1,0 +1,1628 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Carrin & Stone Advisory — Wealth & Tax Advisory</title>
+  <meta name="description" content="SEBI Registered Analyst & Chartered Accountant providing integrated wealth advisory and tax services for retail investors.">
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="carrin_and_stone_advisory_logo.jpeg" as="image">
+
+  <!-- Chart.js CDN (for interactive chart) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      /* Morgan Stanley Inspired Color Palette */
+      --primary:#1a1a1a;        /* Deep charcoal - MS primary */
+      --secondary:#2c2c2c;      /* Charcoal gray */
+      --accent:#0066cc;         /* MS blue */
+      --accent-light:#4d94ff;   /* Light MS blue */
+      --accent-gold:#d4af37;    /* MS gold */
+      --accent-silver:#c0c0c0;  /* MS silver */
+      
+      /* Google Inspired Neutrals */
+      --white:#ffffff;
+      --gray-50:#fafafa;
+      --gray-100:#f5f5f5;
+      --gray-200:#eeeeee;
+      --gray-300:#e0e0e0;
+      --gray-400:#bdbdbd;
+      --gray-500:#9e9e9e;
+      --gray-600:#757575;
+      --gray-700:#616161;
+      --gray-800:#424242;
+      --gray-900:#212121;
+      
+      /* Semantic Colors */
+      --success:#00c851;
+      --warning:#ff8800;
+      --error:#ff4444;
+      --info:#33b5e5;
+      
+      /* Layout */
+      --max-width:1400px;
+      --container-padding:48px;
+      --section-spacing:80px;
+      --card-spacing:24px;
+      
+      /* Typography */
+      --font-primary:'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --font-weight-light:300;
+      --font-weight-regular:400;
+      --font-weight-medium:500;
+      --font-weight-semibold:600;
+      --font-weight-bold:700;
+      --font-weight-extrabold:800;
+      
+      /* Shadows - Google Material Design */
+      --shadow-1: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+      --shadow-2: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+      --shadow-3: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+      --shadow-4: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+      --shadow-5: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+      
+      /* Border Radius */
+      --radius-sm:4px;
+      --radius-md:8px;
+      --radius-lg:12px;
+      --radius-xl:16px;
+      --radius-2xl:24px;
+      
+      /* Transitions */
+      --transition-fast:0.15s ease-out;
+      --transition-normal:0.25s ease-out;
+      --transition-slow:0.35s ease-out;
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    body{
+      margin:0;
+      background: var(--white);
+      color: var(--primary);
+      font-family: var(--font-primary);
+      font-weight: var(--font-weight-regular);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+      letter-spacing: -0.01em;
+    }
+    
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Loading animation */
+    .loading {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+    
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Pulse animation for CTAs */
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+    
+    /* Custom Icons */
+    .icon {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+    
+    .icon-large {
+      width: 24px;
+      height: 24px;
+      margin-right: 12px;
+    }
+    
+    .icon-small {
+      width: 16px;
+      height: 16px;
+      margin-right: 6px;
+    }
+    
+    /* Icon styles using CSS shapes and Unicode */
+    .icon-phone::before { content: "📞"; }
+    .icon-email::before { content: "✉️"; }
+    .icon-whatsapp::before { content: "💬"; }
+    .icon-download::before { content: "⬇️"; }
+    .icon-pdf::before { content: "📄"; }
+    .icon-doc::before { content: "📝"; }
+    .icon-chart::before { content: "📊"; }
+    .icon-money::before { content: "💰"; }
+    .icon-shield::before { content: "🛡️"; }
+    .icon-target::before { content: "🎯"; }
+    .icon-check::before { content: "✅"; }
+    .icon-star::before { content: "⭐"; }
+    .icon-trend::before { content: "📈"; }
+    .icon-calendar::before { content: "📅"; }
+    .icon-users::before { content: "👥"; }
+    .icon-briefcase::before { content: "💼"; }
+    .icon-calculator::before { content: "🧮"; }
+    .icon-graph::before { content: "📈"; }
+    .icon-clock::before { content: "⏰"; }
+    .icon-lock::before { content: "🔒"; }
+    .icon-rocket::before { content: "🚀"; }
+    .icon-heart::before { content: "❤️"; }
+    .icon-diamond::before { content: "💎"; }
+    .icon-trophy::before { content: "🏆"; }
+    .icon-lightbulb::before { content: "💡"; }
+    .icon-search::before { content: "🔍"; }
+    .icon-gear::before { content: "⚙️"; }
+    .icon-arrow::before { content: "➡️"; }
+    .icon-plus::before { content: "➕"; }
+    .icon-question::before { content: "❓"; }
+    .icon-info::before { content: "ℹ️"; }
+    .icon-warning::before { content: "⚠️"; }
+    .icon-success::before { content: "✅"; }
+    .icon-error::before { content: "❌"; }
+    .icon-quote::before { content: "\201C"; }
+    .icon-copyright::before { content: "©"; }
+    
+    /* Floating WhatsApp Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 15px 20px;
+      box-shadow: var(--shadow-xl);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+      animation: pulse 2s infinite;
+    }
+    
+    .whatsapp-float:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+    }
+    
+    @media (max-width: 768px) {
+      .whatsapp-float {
+        bottom: 15px;
+        right: 15px;
+        padding: 12px 16px;
+        font-size: 13px;
+      }
+      .whatsapp-text {
+        display: none;
+      }
+    }
+    /* Container - Google Material Design inspired */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--container-padding);
+    }
+    
+    /* Header Section - Morgan Stanley inspired */
+    .header-section {
+      background: linear-gradient(135deg, var(--white) 0%, var(--gray-50) 100%);
+      border-bottom: 1px solid var(--gray-200);
+      padding: 32px 0;
+      position: relative;
+    }
+    
+    /* Trust Indicators - Google Card style */
+    .trust-indicators {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      margin-bottom: 48px;
+      padding: 24px 0;
+      flex-wrap: wrap;
+    }
+    
+    .trust-indicator {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 20px;
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-1);
+      transition: all var(--transition-normal);
+      font-size: 14px;
+      font-weight: var(--font-weight-medium);
+      color: var(--primary);
+    }
+    
+    .trust-indicator:hover {
+      box-shadow: var(--shadow-2);
+      transform: translateY(-2px);
+    }
+    
+    .trust-indicator .icon {
+      color: var(--accent);
+      font-size: 18px;
+    }
+    
+    /* Header - Morgan Stanley inspired */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      transition: all var(--transition-normal);
+    }
+    
+    .brand:hover {
+      transform: translateY(-1px);
+    }
+    
+    .brand-logo {
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
+      border-radius: var(--radius-lg);
+      background: var(--white);
+      padding: 20px;
+      box-shadow: var(--shadow-3);
+      border: 2px solid var(--gray-200);
+      transition: all var(--transition-normal);
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 10;
+    }
+    
+    .brand-logo:hover {
+      box-shadow: var(--shadow-3);
+      border-color: var(--accent);
+    }
+    
+    .brand-content h1 {
+      margin: 0;
+      font-size: 32px;
+      font-weight: var(--font-weight-extrabold);
+      letter-spacing: -0.02em;
+      color: var(--primary);
+      line-height: 1.1;
+    }
+    
+    .brand-content .tagline {
+      color: var(--gray-600);
+      font-size: 16px;
+      margin-top: 8px;
+      font-weight: var(--font-weight-medium);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .brand-content .subtitle {
+      font-size: 18px;
+      font-weight: var(--font-weight-semibold);
+      color: var(--accent);
+      margin-top: 4px;
+      font-style: italic;
+    }
+    
+    .header-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 16px;
+    }
+    
+    .header-title {
+      font-size: 20px;
+      font-weight: var(--font-weight-bold);
+      color: var(--primary);
+      margin: 0;
+    }
+    
+    .header-subtitle {
+      color: var(--gray-600);
+      font-size: 16px;
+      margin: 0;
+    }
+
+    /* Hero Section - Morgan Stanley inspired */
+    .hero-section {
+      background: linear-gradient(135deg, var(--white) 0%, var(--gray-50) 100%);
+      border-radius: var(--radius-2xl);
+      padding: 64px;
+      display: flex;
+      gap: 64px;
+      align-items: center;
+      box-shadow: var(--shadow-3);
+      border: 1px solid var(--gray-200);
+      margin-bottom: var(--section-spacing);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-content {
+      flex: 1;
+    }
+    
+    .hero-title {
+      margin: 0 0 24px 0;
+      font-size: 48px;
+      font-weight: var(--font-weight-extrabold);
+      color: var(--primary);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+    
+    .hero-description {
+      color: var(--gray-700);
+      margin: 0 0 32px 0;
+      font-size: 20px;
+      line-height: 1.6;
+      font-weight: var(--font-weight-regular);
+    }
+    
+    .hero-features {
+      display: flex;
+      gap: 32px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+    
+    .hero-feature {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 16px;
+      font-weight: var(--font-weight-semibold);
+      color: var(--primary);
+    }
+    
+    .hero-feature .icon {
+      color: var(--accent);
+      font-size: 20px;
+    }
+    
+    .hero-actions {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    
+    .hero-visual {
+      width: 400px;
+      text-align: center;
+    }
+    
+    .hero-card {
+      background: var(--white);
+      border-radius: var(--radius-xl);
+      padding: 32px;
+      box-shadow: var(--shadow-2);
+      border: 1px solid var(--gray-200);
+    }
+    
+    .hero-card-title {
+      font-size: 18px;
+      color: var(--gray-600);
+      font-weight: var(--font-weight-semibold);
+      margin-bottom: 16px;
+    }
+    
+    .hero-card-main {
+      font-weight: var(--font-weight-extrabold);
+      font-size: 32px;
+      color: var(--primary);
+      margin-bottom: 24px;
+    }
+    
+    .hero-card-features {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    
+    .hero-card-feature {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--gray-600);
+    }
+    
+    .hero-card-feature .icon {
+      color: var(--accent);
+    }
+    
+    .hero-card-highlight {
+      margin-bottom: 24px;
+      padding: 20px;
+      background: var(--gray-50);
+      border-radius: var(--radius-lg);
+    }
+    
+    .hero-card-highlight-title {
+      font-weight: var(--font-weight-bold);
+      color: var(--accent);
+      margin-bottom: 8px;
+      font-size: 16px;
+    }
+    
+    .hero-card-highlight-text {
+      color: var(--gray-600);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    /* Buttons - Google Material Design */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 16px 32px;
+      border-radius: var(--radius-lg);
+      text-decoration: none;
+      font-weight: var(--font-weight-semibold);
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      transition: all var(--transition-normal);
+      position: relative;
+      overflow: hidden;
+      min-height: 56px;
+    }
+    
+    .btn-primary {
+      background: var(--accent);
+      color: var(--white);
+      box-shadow: var(--shadow-2);
+    }
+    
+    .btn-primary:hover {
+      background: var(--accent-light);
+      box-shadow: var(--shadow-3);
+      transform: translateY(-2px);
+    }
+    
+    .btn-primary:active {
+      transform: translateY(0);
+      box-shadow: var(--shadow-1);
+    }
+    
+    .btn-secondary {
+      background: var(--white);
+      color: var(--accent);
+      border: 2px solid var(--accent);
+      box-shadow: var(--shadow-1);
+    }
+    
+    .btn-secondary:hover {
+      background: var(--accent);
+      color: var(--white);
+      box-shadow: var(--shadow-2);
+      transform: translateY(-2px);
+    }
+    
+    .btn-outline {
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--gray-300);
+    }
+    
+    .btn-outline:hover {
+      background: var(--gray-50);
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-1px);
+    }
+    
+    .btn-ghost {
+      background: transparent;
+      color: var(--gray-600);
+      border: 2px solid var(--gray-300);
+    }
+    
+    .btn-ghost:hover {
+      background: var(--gray-100);
+      color: var(--primary);
+      border-color: var(--gray-400);
+    }
+
+    /* Grid Layout - Google Material Design */
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 32px;
+      margin-bottom: var(--section-spacing);
+    }
+    
+    .main-content {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+    
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    /* Cards - Google Material Design */
+    .card {
+      background: var(--white);
+      border-radius: var(--radius-xl);
+      padding: 32px;
+      box-shadow: var(--shadow-1);
+      border: 1px solid var(--gray-200);
+      transition: all var(--transition-normal);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .card:hover {
+      box-shadow: var(--shadow-3);
+      transform: translateY(-4px);
+    }
+    
+    .card-elevated {
+      box-shadow: var(--shadow-2);
+    }
+    
+    .card-elevated:hover {
+      box-shadow: var(--shadow-4);
+    }
+    
+    .card-outlined {
+      border: 2px solid var(--gray-200);
+      box-shadow: none;
+    }
+    
+    .card-outlined:hover {
+      border-color: var(--accent);
+      box-shadow: var(--shadow-1);
+    }
+    
+    /* Section Headers */
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      font-weight: var(--font-weight-semibold);
+      color: var(--gray-600);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 24px;
+    }
+    
+    .section-header .icon {
+      color: var(--accent);
+    }
+    
+    /* Services Grid */
+    .services-grid {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    
+    .service-card {
+      flex: 1;
+      min-width: 280px;
+    }
+    
+    .service-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 16px 0;
+      font-size: 20px;
+      font-weight: var(--font-weight-bold);
+      color: var(--primary);
+    }
+    
+    .service-description {
+      color: var(--gray-700);
+      margin: 0 0 20px 0;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+    
+    .service-features {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .service-features li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+      font-size: 15px;
+      color: var(--gray-700);
+    }
+    
+    .service-features .icon {
+      color: var(--success);
+    }
+    
+    /* Pricing Section */
+    .pricing-intro {
+      margin-bottom: 32px;
+      padding: 20px;
+      background: var(--gray-50);
+      border-radius: var(--radius-lg);
+      border-left: 4px solid var(--accent);
+    }
+    
+    .pricing-intro-title {
+      font-weight: var(--font-weight-bold);
+      color: var(--accent);
+      margin-bottom: 12px;
+      font-size: 18px;
+    }
+    
+    .pricing-intro-text {
+      color: var(--gray-700);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    
+    .plan-row {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+    
+    .plan-card {
+      flex: 1;
+      padding: 24px;
+      background: var(--white);
+      border: 2px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      transition: all var(--transition-normal);
+    }
+    
+    .plan-card:hover {
+      border-color: var(--accent);
+      box-shadow: var(--shadow-2);
+    }
+    
+    .plan-card.popular {
+      border-color: var(--accent-gold);
+      background: linear-gradient(135deg, var(--white), var(--gray-50));
+    }
+    
+    .plan-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    
+    .plan-badge {
+      background: linear-gradient(135deg, var(--accent-gold), #f59e0b);
+      color: var(--white);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: var(--font-weight-bold);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .plan-title {
+      font-weight: var(--font-weight-extrabold);
+      font-size: 20px;
+      color: var(--primary);
+    }
+    
+    .plan-price {
+      font-size: 28px;
+      font-weight: var(--font-weight-extrabold);
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+    
+    .plan-price-period {
+      font-size: 16px;
+      font-weight: var(--font-weight-semibold);
+      color: var(--gray-600);
+    }
+    
+    .plan-features {
+      background: var(--gray-50);
+      padding: 20px;
+      border-radius: var(--radius-lg);
+      margin-bottom: 20px;
+    }
+    
+    .plan-features-title {
+      font-weight: var(--font-weight-bold);
+      color: var(--primary);
+      margin-bottom: 16px;
+      font-size: 16px;
+    }
+    
+    .plan-features-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .plan-features-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+      font-size: 15px;
+      color: var(--gray-700);
+    }
+    
+    .plan-features-list .icon {
+      color: var(--success);
+    }
+    
+    .pricing-benefits {
+      margin-top: 32px;
+      padding: 24px;
+      background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+      border-radius: var(--radius-lg);
+      border-left: 4px solid var(--success);
+    }
+    
+    .pricing-benefits-title {
+      font-weight: var(--font-weight-bold);
+      color: var(--accent);
+      margin-bottom: 12px;
+      font-size: 18px;
+    }
+    
+    .pricing-benefits-text {
+      color: var(--gray-700);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    
+    .small{ 
+      font-size:14px; 
+      color:var(--muted); 
+      margin-bottom:16px; 
+      font-weight:600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .plan-row{ 
+      display:flex;
+      gap:16px; 
+      align-items:flex-start; 
+      margin-top:16px;
+    }
+    
+    .badge{ 
+      background: linear-gradient(135deg, var(--accent-2), #d4af37);
+      color:white; 
+      padding:6px 12px; 
+      border-radius:20px; 
+      font-weight:700; 
+      font-size:12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .plans{ 
+      display:flex;
+      gap:16px; 
+      margin-top:16px;
+    }
+
+    .plan{ 
+      flex:1; 
+      border-radius:12px;
+      padding:20px; 
+      border:2px solid rgba(14,42,74,0.1);
+      transition: all 0.3s ease;
+      position: relative;
+      background: linear-gradient(135deg, #fff, #fafbfc);
+    }
+    
+    .plan:hover {
+      border-color: var(--accent-light);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .plan h3{ 
+      margin:0; 
+      color:var(--accent);
+      font-size:18px; 
+      font-weight:700;
+    }
+    
+    .price{ 
+      margin-top:12px; 
+      font-size:20px; 
+      font-weight:800; 
+      color:#0f172a;
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .plan ul{ 
+      margin:16px 0 0 20px; 
+      color:var(--muted); 
+      font-size:14px;
+      line-height: 1.6;
+    }
+    
+    .plan li {
+      margin-bottom: 8px;
+      position: relative;
+    }
+    
+    .plan li::marker {
+      color: var(--accent-light);
+    }
+
+    /* Chart */
+    .chart-wrap{ 
+      margin-top:16px; 
+      background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid rgba(14,42,74,0.08);
+    }
+    
+    canvas{ 
+      max-width:100%; 
+      height:360px; 
+      border-radius: 8px;
+    }
+
+    /* Process / trusted */
+    .two-col{ 
+      display:flex; 
+      gap:20px; 
+      margin-top:20px;
+    }
+    
+    .two-col .col{ 
+      flex:1;
+      padding: 16px;
+      background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+      border-radius: 12px;
+      border: 1px solid rgba(14,42,74,0.08);
+      transition: all 0.3s ease;
+    }
+    
+    .two-col .col:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    footer{ 
+      margin-top:32px; 
+      display:flex; 
+      justify-content:space-between; 
+      align-items:center; 
+      gap:16px; 
+      color:var(--muted); 
+      font-size:14px;
+      padding: 24px 0;
+      border-top: 1px solid rgba(14,42,74,0.1);
+    }
+
+    /* Testimonials */
+    .testimonials {
+      margin-top: 24px;
+    }
+    
+    .testimonial {
+      background: linear-gradient(135deg, #fff, #fafbfc);
+      border-radius: 12px;
+      padding: 20px;
+      border-left: 4px solid var(--accent);
+      margin-bottom: 16px;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .testimonial-text {
+      font-style: italic;
+      color: var(--muted);
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+    
+    .testimonial-author {
+      font-weight: 600;
+      color: var(--accent);
+      font-size: 14px;
+    }
+
+    /* Responsive */
+    @media (max-width:1024px){
+      .grid{ grid-template-columns: 1fr; }
+      .hero{ flex-direction:column; align-items:flex-start; }
+      .hero > div:last-child {
+        width: 100%;
+        text-align: center;
+      }
+    }
+    
+    @media (max-width:768px){
+      .wrap {
+        padding: 16px;
+        margin: 16px auto;
+      }
+      
+      .brand img{ width:60px; height:60px; }
+      .brand h1 { font-size: 20px; }
+      
+      .hero {
+        padding: 24px;
+        gap: 20px;
+      }
+      
+      .hero h2 {
+        font-size: 24px;
+      }
+      
+      .hero-cta {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      
+      .btn, .btn-ghost {
+        text-align: center;
+        justify-content: center;
+      }
+      
+      .plan-row {
+        flex-direction: column;
+        gap: 12px;
+      }
+      
+      .two-col {
+        flex-direction: column;
+        gap: 12px;
+      }
+      
+      footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+      }
+    }
+    
+    @media (max-width:480px){
+      .hero h2 {
+        font-size: 20px;
+      }
+      
+      .hero p {
+        font-size: 14px;
+      }
+      
+      .card {
+        padding: 16px;
+      }
+      
+      .plan {
+        padding: 16px;
+      }
+      
+      .brand-logo {
+        width: 80px;
+        height: 80px;
+        top: 16px;
+        right: 16px;
+        padding: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header Section -->
+    <div class="header-section">
+      <!-- Trust Indicators -->
+      <div class="trust-indicators">
+        <div class="trust-indicator">
+          <span class="icon icon-shield"></span>
+          <span>SEBI Registered</span>
+        </div>
+        <div class="trust-indicator">
+          <span class="icon icon-check"></span>
+          <span>ICAI Certified</span>
+        </div>
+        <div class="trust-indicator">
+          <span class="icon icon-diamond"></span>
+          <span>Fee-Only Advisory</span>
+        </div>
+        <div class="trust-indicator">
+          <span class="icon icon-target"></span>
+          <span>Client-First Approach</span>
+        </div>
+      </div>
+
+      <!-- Header -->
+      <div class="header">
+      <div class="brand">
+          <img src="carrin_and_stone_advisory_logo.jpeg" alt="Carrin & Stone Advisory Logo" class="brand-logo" onerror="this.style.display='none'" loading="eager">
+          <div class="brand-content">
+          <h1>Carrin & Stone Advisory</h1>
+            <div class="tagline">SEBI Registered Analyst (RA) & Chartered Accountant (CA)</div>
+            <div class="subtitle">Your Trusted Partner in Wealth Creation & Tax Optimization</div>
+        </div>
+      </div>
+
+        <div class="header-actions">
+          <h2 class="header-title">Professional Wealth & Tax Advisory</h2>
+          <p class="header-subtitle">Semi-Annual Billing • Transparent Fees • Ongoing Partnership</p>
+          <div style="display: flex; gap: 12px; margin-top: 16px;">
+            <a href="sandbox:/mnt/data/Carrin_Stone_Client_Presentation.pdf" target="_blank" class="btn btn-primary" aria-label="Download presentation as PDF">
+              <span class="icon icon-pdf"></span>Download PDF
+            </a>
+            <a href="sandbox:/mnt/data/Carrin_Stone_Client_Presentation.docx" target="_blank" class="btn btn-secondary" aria-label="Download presentation as DOCX">
+              <span class="icon icon-doc"></span>Download DOCX
+            </a>
+            <a href="https://wa.me/918368755035?text=Hi%2C%20I%27m%20interested%20in%20your%20wealth%20advisory%20services" target="_blank" class="btn btn-outline" aria-label="Connect on WhatsApp">
+              <span class="icon icon-whatsapp"></span>Connect
+            </a>
+        </div>
+      </div>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-content">
+        <h2 class="hero-title">Your Strategic Partner in Wealth Creation & Tax Optimization</h2>
+        <p class="hero-description">
+          We provide integrated wealth advisory and tax services through a single, trusted partnership. Our SEBI-registered and ICAI-certified approach ensures your investments are strategically aligned with your goals while maximizing after-tax returns.
+        </p>
+        
+        <div class="hero-features">
+          <div class="hero-feature">
+            <span class="icon icon-target"></span>
+            <span>Goal-Based Planning</span>
+          </div>
+          <div class="hero-feature">
+            <span class="icon icon-shield"></span>
+            <span>Regulatory Compliance</span>
+          </div>
+          <div class="hero-feature">
+            <span class="icon icon-diamond"></span>
+            <span>Transparent Fees</span>
+        </div>
+      </div>
+
+        <div class="hero-actions">
+          <a href="tel:+91-8368755035" class="btn btn-primary" aria-label="Call for free consultation">
+            <span class="icon icon-phone"></span>Schedule Consultation
+          </a>
+          <a href="#plans" class="btn btn-secondary" aria-label="View pricing plans">
+            <span class="icon icon-money"></span>View Partnership Plans
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-card">
+          <div class="hero-card-title">Professional Excellence</div>
+          <div class="hero-card-main">SEBI RA + CA</div>
+          <div class="hero-card-highlight">
+            <div class="hero-card-highlight-title">Semi-Annual Partnership</div>
+            <div class="hero-card-highlight-text">Transparent billing • Ongoing support • Quarterly reviews</div>
+          </div>
+          <div class="hero-card-features">
+            <div class="hero-card-feature">
+              <span class="icon icon-whatsapp"></span>
+              <span>Dedicated WhatsApp Support</span>
+            </div>
+            <div class="hero-card-feature">
+              <span class="icon icon-chart"></span>
+              <span>Quarterly Portfolio Reviews</span>
+            </div>
+            <div class="hero-card-feature">
+              <span class="icon icon-diamond"></span>
+              <span>Fee-Only Advisory Model</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content Grid -->
+    <div class="main-grid">
+      <div class="main-content">
+        <div class="card card-elevated">
+          <div class="section-header">
+            <span class="icon icon-briefcase icon-small"></span>
+            <span>Our Core Services</span>
+          </div>
+          <div class="services-grid">
+            <div class="service-card">
+              <h3 class="service-title">
+                <span class="icon icon-briefcase icon-large"></span>
+                Wealth Advisory (RA)
+              </h3>
+              <p class="service-description">Goal-based portfolio design, equity & mutual fund selection, asset allocation, and quarterly rebalancing — powered by research and SEBI-compliant processes.</p>
+              <ul class="service-features">
+                <li><span class="icon icon-check icon-small"></span>Personalized asset allocation</li>
+                <li><span class="icon icon-check icon-small"></span>SIP & lump-sum structuring</li>
+                <li><span class="icon icon-check icon-small"></span>Quarterly portfolio health checks</li>
+              </ul>
+            </div>
+
+            <div class="service-card">
+              <h3 class="service-title">
+                <span class="icon icon-calculator icon-large"></span>
+                Tax & Compliance (CA)
+              </h3>
+              <p class="service-description">End-to-end tax filing, capital gains planning, family tax structuring, and succession planning — ensuring returns are protected.</p>
+              <ul class="service-features">
+                <li><span class="icon icon-check icon-small"></span>ITR filing & reporting</li>
+                <li><span class="icon icon-check icon-small"></span>Capital gains & LTCG/STCG strategies</li>
+                <li><span class="icon icon-check icon-small"></span>Estate & succession advice</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="card card-elevated" id="plans">
+          <div class="section-header">
+            <span class="icon icon-money icon-small"></span>
+            <span>Professional Service Plans — Semi-Annual Billing</span>
+          </div>
+          <div class="pricing-intro">
+            <div class="pricing-intro-title">Transparent, Value-Driven Pricing</div>
+            <div class="pricing-intro-text">Our semi-annual billing model provides better cash flow management while ensuring consistent, high-quality advisory services throughout the year.</div>
+          </div>
+          
+          <div class="plan-row">
+            <div class="plan-card popular">
+              <div class="plan-header">
+                <div class="plan-badge">Most Popular</div>
+                <div class="plan-title">Standard Partnership</div>
+              </div>
+              <div class="plan-price">₹9,000 – ₹10,000 <span class="plan-price-period">/ 6 months</span></div>
+              <div class="plan-features">
+                <div class="plan-features-title">Core Services Include:</div>
+                <ul class="plan-features-list">
+                  <li><span class="icon icon-check icon-small"></span>Comprehensive Portfolio Advisory</li>
+                  <li><span class="icon icon-check icon-small"></span>ITR Filing & Tax Compliance</li>
+                  <li><span class="icon icon-check icon-small"></span>Bi-annual Tax Planning Sessions</li>
+                  <li><span class="icon icon-check icon-small"></span>WhatsApp Support & Consultation</li>
+              </ul>
+              </div>
+            </div>
+
+            <div class="plan-card">
+              <div class="plan-header">
+                <div style="width:12px;height:12px;border-radius:50%;background:var(--accent);"></div>
+                <div class="plan-title">Premium Partnership</div>
+              </div>
+              <div class="plan-price">₹12,500 – ₹15,000 <span class="plan-price-period">/ 6 months</span></div>
+              <div class="plan-features">
+                <div class="plan-features-title">Enhanced Services Include:</div>
+                <ul class="plan-features-list">
+                  <li><span class="icon icon-check icon-small"></span>Goal-Based Portfolio Management</li>
+                  <li><span class="icon icon-check icon-small"></span>Quarterly Portfolio Reviews</li>
+                  <li><span class="icon icon-check icon-small"></span>Advanced Tax Optimization</li>
+                  <li><span class="icon icon-check icon-small"></span>Family Tax Structuring</li>
+                  <li><span class="icon icon-check icon-small"></span>Priority Support & Consultation</li>
+              </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="pricing-benefits">
+            <div class="pricing-benefits-title">Why Choose Semi-Annual Billing?</div>
+            <div class="pricing-benefits-text">
+              <strong>Better Cash Flow:</strong> Spread payments across the year for easier budgeting • 
+              <strong>Consistent Service:</strong> Maintains ongoing relationship and continuous monitoring • 
+              <strong>Value Optimization:</strong> Regular reviews ensure your portfolio stays aligned with goals
+            </div>
+          </div>
+          </div>
+        </div>
+
+      <div class="sidebar">
+        <div class="card card-elevated">
+          <div class="small">Illustrative Example — Mr. X</div>
+          <h3 style="margin:6px 0 8px 0; color:var(--accent);"><span class="icon icon-users icon-large"></span>Investor: 32 yrs • ₹10,00,000 initial + ₹30,000 / month</h3>
+          <p style="color:var(--muted); margin:0 0 10px 0;">
+            <span class="icon icon-warning icon-small"></span>Without advisory: scattered portfolio & tax leakage (~₹30k/yr).<br>
+            <span class="icon icon-success icon-small"></span>With Carrin & Stone: structured allocation + tax planning yields higher after-tax returns.
+          </p>
+
+          <div class="chart-wrap">
+            <canvas id="projChart"></canvas>
+          </div>
+
+          <div style="display:flex; gap:12px; margin-top:12px; align-items:center; flex-wrap:wrap;">
+            <div style="padding:12px; background:linear-gradient(135deg, #f0fdf4, #dcfce7); border-radius:8px; color:var(--success); font-weight:700; border-left:4px solid var(--success);">
+              <span class="icon icon-trend icon-small"></span>With advisory ≈ ₹79 Lakh (10 yrs)
+            </div>
+            <div style="padding:12px; background:linear-gradient(135deg, #fff7ed, #fed7aa); border-radius:8px; color:#b45309; font-weight:700; border-left:4px solid #b45309;">
+              <span class="icon icon-warning icon-small"></span>Without advisory ≈ ₹65 Lakh (10 yrs)
+            </div>
+            <div style="margin-left:auto; color:var(--muted); font-size:13px; padding:8px; background:linear-gradient(135deg, #f8fafc, #e2e8f0); border-radius:8px; font-weight:600;">
+              <span class="icon icon-trophy icon-small"></span>Net benefit ≈ ₹14 Lakh (10 yrs)
+            </div>
+          </div>
+        </div>
+
+        <div class="card loading" style="margin-top:24px;">
+          <div class="small">Our Process</div>
+          <div class="two-col">
+            <div class="col">
+              <h3 style="margin:8px 0; font-size:18px; font-weight:700; color:var(--accent);"><span class="icon icon-search icon-large"></span>Discovery</h3>
+              <p style="color:var(--muted); margin:0; line-height:1.6;">Risk & tax profiling, goals, time-horizon, cashflow mapping.</p>
+            </div>
+            <div class="col">
+              <h3 style="margin:8px 0; font-size:18px; font-weight:700; color:var(--accent);"><span class="icon icon-gear icon-large"></span>Implementation & Support</h3>
+              <p style="color:var(--muted); margin:0; line-height:1.6;">Execution, ITR filing, WhatsApp support for queries, and quarterly reviews.</p>
+            </div>
+          </div>
+
+          <div style="margin-top:20px;">
+            <h3 style="margin:8px 0; font-size:18px; font-weight:700; color:var(--accent);">Why clients trust us</h3>
+            <ul style="color:var(--muted); list-style:none; padding:0;">
+              <li style="margin-bottom:8px; padding-left:20px; position:relative;"><span class="icon icon-shield icon-small"></span>SEBI-registered advisory processes and ICAI-aligned tax practice</li>
+              <li style="margin-bottom:8px; padding-left:20px; position:relative;"><span class="icon icon-diamond icon-small"></span>Transparent fee-only model — no hidden commissions</li>
+              <li style="margin-bottom:8px; padding-left:20px; position:relative;"><span class="icon icon-target icon-small"></span>Single-window accountability — saves time and reduces errors</li>
+              <li style="margin-bottom:8px; padding-left:20px; position:relative;"><span class="icon icon-whatsapp icon-small"></span>Dedicated WhatsApp support for quick clarifications</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Testimonials Section -->
+        <div class="card loading" style="margin-top:24px;">
+          <div class="small"><span class="icon icon-heart icon-small"></span>What Our Clients Say</div>
+          <div class="testimonials">
+            <div class="testimonial">
+              <div class="testimonial-text">
+                <span class="icon icon-quote" style="font-size:24px; color:var(--accent-light); margin-right:8px;">"</span>Carrin & Stone Advisory transformed my investment approach. Their integrated wealth and tax strategy helped me save ₹2.5L in taxes while growing my portfolio by 12% annually. The WhatsApp support is incredibly responsive.
+              </div>
+              <div class="testimonial-author"><span class="icon icon-star icon-small"></span>— Rajesh Kumar, Software Engineer, Bangalore</div>
+            </div>
+            
+            <div class="testimonial">
+              <div class="testimonial-text">
+                <span class="icon icon-quote" style="font-size:24px; color:var(--accent-light); margin-right:8px;">"</span>As a first-time investor, I was overwhelmed by the complexity. Their goal-based approach and quarterly reviews gave me confidence. My ₹8L investment is now worth ₹12L in just 2 years.
+              </div>
+              <div class="testimonial-author"><span class="icon icon-star icon-small"></span>— Priya Sharma, Marketing Manager, Mumbai</div>
+            </div>
+            
+            <div class="testimonial">
+              <div class="testimonial-text">
+                <span class="icon icon-quote" style="font-size:24px; color:var(--accent-light); margin-right:8px;">"</span>The bundled RA + CA service is a game-changer. No more coordinating between different advisors. Everything under one roof with transparent fees and excellent service.
+              </div>
+              <div class="testimonial-author"><span class="icon icon-star icon-small"></span>— Amit Patel, Business Owner, Delhi</div>
+            </div>
+          </div>
+        </div>
+
+      </main>
+
+      <aside>
+        <div class="card loading">
+          <div style="display:flex; align-items:center; justify-content:space-between;">
+            <div>
+              <div style="font-size:14px; color:var(--muted); font-weight:600;"><span class="icon icon-phone"></span>Contact</div>
+              <div style="font-weight:700; margin-top:8px; font-size:18px; color:var(--accent);">Carrin & Stone Advisory</div>
+              <div style="color:var(--muted); margin-top:8px; line-height:1.6;"><span class="icon icon-email icon-small"></span>Email: <a href="mailto:avaneesh.kumar@carrinandstoneadvisory.com" style="color:var(--accent-light); text-decoration:none;">avaneesh.kumar@carrinandstoneadvisory.com</a></div>
+              <div style="color:var(--muted); margin-top:8px; line-height:1.6;"><span class="icon icon-whatsapp icon-small"></span>WhatsApp: <a href="https://wa.me/918368755035" target="_blank" style="color:var(--accent-light); text-decoration:none;">+91-8368755035</a></div>
+            </div>
+          </div>
+
+          <div style="margin-top:20px;">
+            <div style="font-size:14px; color:var(--muted); font-weight:600;"><span class="icon icon-download"></span>Documents</div>
+            <div style="margin-top:12px; display:flex; gap:8px; flex-wrap:wrap;">
+              <a class="btn" href="sandbox:/mnt/data/Carrin_Stone_Client_Presentation.pdf" target="_blank" style="padding:10px 12px; font-size:13px; flex:1; min-width:120px; text-align:center;"><span class="icon icon-pdf icon-small"></span>PDF</a>
+              <a class="btn-ghost" href="sandbox:/mnt/data/Carrin_Stone_Client_Presentation.docx" target="_blank" style="padding:10px 12px; font-size:13px; flex:1; min-width:120px; text-align:center;"><span class="icon icon-doc icon-small"></span>DOCX</a>
+            </div>
+          <div style="margin-top:12px;">
+              <a class="btn" href="https://wa.me/918368755035?text=Hi%2C%20I%27m%20interested%20in%20your%20wealth%20advisory%20services" target="_blank" style="width:100%; justify-content:center; background:linear-gradient(135deg, #25D366, #128C7E); border:none; color:white; font-weight:600;"><span class="icon icon-whatsapp"></span>Connect on WhatsApp</a>
+            </div>
+          </div>
+
+          <div style="margin-top:20px;">
+            <div style="font-size:14px; color:var(--muted); font-weight:600;"><span class="icon icon-question"></span>Quick FAQ</div>
+            <ul style="color:var(--muted); font-size:14px; list-style:none; padding:0; margin-top:12px;">
+              <li style="margin-bottom:8px; padding:8px; background:linear-gradient(135deg, #f8fafc, #f1f5f9); border-radius:8px; border-left:3px solid var(--accent);"><span class="icon icon-shield icon-small"></span>Are you SEBI-compliant? <strong style="color:var(--accent);">Yes.</strong></li>
+              <li style="margin-bottom:8px; padding:8px; background:linear-gradient(135deg, #f8fafc, #f1f5f9); border-radius:8px; border-left:3px solid var(--accent);"><span class="icon icon-whatsapp icon-small"></span>Is WhatsApp support available? <strong style="color:var(--accent);">Yes — quick clarifications.</strong></li>
+              <li style="margin-bottom:8px; padding:8px; background:linear-gradient(135deg, #f8fafc, #f1f5f9); border-radius:8px; border-left:3px solid var(--accent);"><span class="icon icon-diamond icon-small"></span>How are fees charged? <strong style="color:var(--accent);">Annual fixed packages (no hidden commissions).</strong></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card loading" style="margin-top:16px; text-align:center;">
+          <div style="font-weight:700; color:var(--accent); font-size:18px;"><span class="icon icon-rocket icon-large"></span>Ready to start?</div>
+          <div style="color:var(--muted); margin-top:8px; line-height:1.6;">Complimentary portfolio & tax assessment for new clients.</div>
+          <div style="margin-top:16px;">
+            <a class="btn pulse" href="tel:+91-8368755035" style="width:100%; justify-content:center;"><span class="icon icon-phone"></span>Book Consultation</a>
+          </div>
+        </div>
+
+      </aside>
+    </div>
+
+    <footer>
+      <div><span class="icon icon-copyright"></span>© Carrin & Stone Advisory</div>
+      <div><span class="icon icon-target icon-small"></span>Designed for retail investors (₹5–15L investable income) • <span class="icon icon-shield icon-small"></span>SEBI RA + CA</div>
+    </footer>
+  </div>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/918368755035?text=Hi%2C%20I%27m%20interested%20in%20your%20wealth%20advisory%20services" target="_blank" class="whatsapp-float" aria-label="Connect on WhatsApp">
+    <span class="icon icon-whatsapp"></span>
+    <span class="whatsapp-text">Connect</span>
+  </a>
+
+  <!-- Enhanced JavaScript for interactivity and animations -->
+  <script>
+    // Loading animations
+    document.addEventListener('DOMContentLoaded', function() {
+      // Stagger loading animations
+      const loadingElements = document.querySelectorAll('.loading');
+      loadingElements.forEach((element, index) => {
+        setTimeout(() => {
+          element.style.animationDelay = `${index * 0.1}s`;
+        }, 100);
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+
+      // Add hover effects to cards
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+          this.style.transform = 'translateY(-4px)';
+        });
+        card.addEventListener('mouseleave', function() {
+          this.style.transform = 'translateY(0)';
+        });
+      });
+
+      // Add click tracking for buttons
+      const buttons = document.querySelectorAll('.btn, .btn-ghost');
+      buttons.forEach(button => {
+        button.addEventListener('click', function() {
+          // Add ripple effect
+          const ripple = document.createElement('span');
+          ripple.style.position = 'absolute';
+          ripple.style.borderRadius = '50%';
+          ripple.style.background = 'rgba(255,255,255,0.6)';
+          ripple.style.transform = 'scale(0)';
+          ripple.style.animation = 'ripple 0.6s linear';
+          ripple.style.left = '50%';
+          ripple.style.top = '50%';
+          ripple.style.width = '20px';
+          ripple.style.height = '20px';
+          ripple.style.marginLeft = '-10px';
+          ripple.style.marginTop = '-10px';
+          
+          this.style.position = 'relative';
+          this.style.overflow = 'hidden';
+          this.appendChild(ripple);
+          
+          setTimeout(() => {
+            ripple.remove();
+          }, 600);
+        });
+      });
+    });
+
+    // Add ripple animation
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes ripple {
+        to {
+          transform: scale(4);
+          opacity: 0;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+
+    // Chart data & config (Mr. X projection)
+    document.addEventListener('DOMContentLoaded', function() {
+    // Model assumptions (mirrors the projection used earlier)
+    const initial = 1000000; // ₹10,00,000
+    const monthly = 30000; // ₹30,000
+    const years = 10;
+    const months = years * 12;
+
+    // Monthly effective returns (approx)
+    const annualWithout = 0.08; // 8% p.a.
+    const annualWith = 0.10;    // 10% p.a.
+    const taxLeakageWithout = 0.015; // 1.5% drag annually
+    const taxSavingWith = 0.005; // 0.5% effective drag after optimization
+
+    const effWithoutMonth = annualWithout/12 - (taxLeakageWithout/12);
+    const effWithMonth = annualWith/12 - (taxSavingWith/12);
+
+    // Build monthly series
+    let valW = initial;
+    let valWO = initial;
+    const labels = [];
+    const dataWith = [];
+    const dataWithout = [];
+
+    for(let m=0;m<=months;m++){
+      labels.push((m/12).toFixed(1));
+      dataWith.push(Math.round(valW));
+      dataWithout.push(Math.round(valWO));
+
+      valW = valW*(1+effWithMonth) + monthly;
+      valWO = valWO*(1+effWithoutMonth) + monthly;
+    }
+
+      // Chart.js rendering with enhanced styling
+    const ctx = document.getElementById('projChart').getContext('2d');
+    const projChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: labels.map(v => v + 'y'),
+        datasets: [
+          {
+            label: 'With Bundled Advisory',
+            data: dataWith,
+            borderColor: 'rgba(14,42,74,1)',
+              backgroundColor: 'rgba(14,42,74,0.08)',
+              tension: 0.4,
+              pointRadius: 0,
+              borderWidth: 3,
+              fill: true
+          },
+          {
+            label: 'Without Advisory (DIY)',
+            data: dataWithout,
+            borderColor: 'rgba(180,142,74,1)',
+              borderDash: [8,4],
+              backgroundColor: 'rgba(180,142,74,0.05)',
+              tension: 0.4,
+              pointRadius: 0,
+              borderWidth: 3,
+              fill: true
+          }
+        ]
+      },
+      options: {
+          responsive: true,
+          maintainAspectRatio: false,
+        scales: {
+          y: {
+              beginAtZero: true,
+              grid: {
+                color: 'rgba(14,42,74,0.1)',
+                drawBorder: false
+              },
+            ticks: {
+                color: 'rgba(14,42,74,0.7)',
+                font: {
+                  size: 12,
+                  weight: '600'
+                },
+              callback: function(value, index, values) {
+                return (value/100000).toFixed(1) + 'L';
+              }
+            }
+          },
+          x: {
+              grid: {
+                color: 'rgba(14,42,74,0.1)',
+                drawBorder: false
+              },
+            ticks: {
+                color: 'rgba(14,42,74,0.7)',
+                font: {
+                  size: 12,
+                  weight: '600'
+                },
+              maxTicksLimit: 11
+            }
+          }
+        },
+        plugins: {
+            legend: { 
+              position: 'top',
+              labels: {
+                usePointStyle: true,
+                pointStyle: 'line',
+                padding: 20,
+                font: {
+                  size: 14,
+                  weight: '600'
+                },
+                color: 'rgba(14,42,74,0.8)'
+              }
+            },
+          tooltip: {
+              backgroundColor: 'rgba(14,42,74,0.9)',
+              titleColor: 'white',
+              bodyColor: 'white',
+              borderColor: 'rgba(14,42,74,0.2)',
+              borderWidth: 1,
+              cornerRadius: 8,
+            callbacks: {
+              label: function(context) {
+                const v = context.raw;
+                  return '₹ ' + v.toLocaleString('en-IN');
+              }
+            }
+          }
+        },
+          interaction: { 
+            mode: 'index', 
+            intersect: false 
+          },
+          animation: {
+            duration: 2000,
+            easing: 'easeInOutQuart'
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
