@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   <title>Carrin & Stone Advisory — Wealth & Tax Advisory</title>
   <meta name="description" content="SEBI Registered Analyst & Chartered Accountant providing integrated wealth advisory and tax services for retail investors.">
   
@@ -295,20 +295,30 @@
       transform: translateY(-1px);
     }
     
-    .brand-logo {
-      width: 120px;
-      height: 120px;
+    .brand-logo-inline {
+      width: 72px;
+      height: 72px;
       object-fit: contain;
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius-md);
       background: var(--white);
-      padding: 20px;
-      box-shadow: var(--shadow-3);
+      padding: 10px;
+      box-shadow: var(--shadow-2);
       border: 2px solid var(--gray-200);
       transition: all var(--transition-normal);
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      z-index: 10;
+      margin-right: 16px;
+    }
+    
+    .brand-title-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    
+    .brand-title-row h1 {
+      margin: 0;
+      font-size: 28px;
+      font-weight: var(--font-weight-extrabold);
+      color: var(--primary);
     }
     
     .brand-logo:hover {
@@ -1038,29 +1048,227 @@
       }
     }
     
-    @media (max-width:480px){
-      .hero h2 {
+    /* Mobile Optimization */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 16px;
+      }
+      
+      .header-section {
+        padding: 24px 0;
+      }
+      
+      .trust-indicators {
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: center;
+      }
+      
+      .trust-indicator {
+        font-size: 12px;
+        padding: 6px 12px;
+      }
+      
+      .brand-title-row {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+      }
+      
+      .brand-title-row h1 {
+        font-size: 24px;
+      }
+      
+      .brand-logo-inline {
+        width: 60px;
+        height: 60px;
+        margin-right: 0;
+        margin-bottom: 8px;
+      }
+      
+      .header-actions {
+        text-align: center;
+        margin-top: 20px;
+      }
+      
+      .header-actions .btn {
+        padding: 12px 16px;
+        font-size: 14px;
+      }
+      
+      .hero-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 32px 0;
+      }
+      
+      .hero-content {
+        width: 100%;
+        margin-bottom: 24px;
+      }
+      
+      .hero-title {
+        font-size: 24px;
+        line-height: 1.3;
+        margin-bottom: 16px;
+      }
+      
+      .hero-description {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+      
+      .hero-features {
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 24px;
+      }
+      
+      .hero-feature {
+        justify-content: center;
+      }
+      
+      .hero-actions {
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+      }
+      
+      .hero-visual {
+        width: 100%;
+        text-align: center;
+      }
+      
+      .hero-card {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+      
+      .main-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      
+      .services-grid {
+        flex-direction: column;
+        gap: 24px;
+      }
+      
+      .service-card {
+        min-width: auto;
+      }
+      
+      .plan-row {
+        flex-direction: column;
+        gap: 20px;
+      }
+      
+      .plan-card {
+        width: 100%;
+      }
+      
+      .sidebar {
+        margin-top: 24px;
+      }
+      
+      .chart-wrap {
+        height: 300px;
+      }
+      
+      .whatsapp-float {
+        bottom: 20px;
+        right: 20px;
+        padding: 12px;
+      }
+      
+      .whatsapp-text {
+        display: none;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 12px;
+      }
+      
+      .header-section {
+        padding: 20px 0;
+      }
+      
+      .brand-title-row h1 {
         font-size: 20px;
       }
       
-      .hero p {
+      .brand-logo-inline {
+        width: 48px;
+        height: 48px;
+        padding: 8px;
+      }
+      
+      .hero-title {
+        font-size: 20px;
+      }
+      
+      .hero-description {
         font-size: 14px;
       }
       
       .card {
         padding: 16px;
+        margin-bottom: 16px;
       }
       
-      .plan {
+      .section-header {
+        font-size: 12px;
+        margin-bottom: 16px;
+      }
+      
+      .service-title {
+        font-size: 18px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      
+      .plan-price {
+        font-size: 24px;
+      }
+      
+      .plan-features {
         padding: 16px;
       }
       
-      .brand-logo {
-        width: 80px;
-        height: 80px;
-        top: 16px;
+      .btn {
+        padding: 10px 16px;
+        font-size: 14px;
+        width: 100%;
+        justify-content: center;
+      }
+      
+      .hero-actions {
+        width: 100%;
+      }
+      
+      .hero-actions .btn {
+        width: 100%;
+        max-width: 280px;
+      }
+      
+      .trust-indicators {
+        gap: 6px;
+      }
+      
+      .trust-indicator {
+        font-size: 11px;
+        padding: 4px 8px;
+      }
+      
+      .whatsapp-float {
+        bottom: 16px;
         right: 16px;
-        padding: 16px;
+        padding: 10px;
       }
     }
   </style>
@@ -1092,9 +1300,11 @@
       <!-- Header -->
       <div class="header">
       <div class="brand">
-          <img src="carrin_and_stone_advisory_logo.jpeg" alt="Carrin & Stone Advisory Logo" class="brand-logo" onerror="this.style.display='none'" loading="eager">
           <div class="brand-content">
+            <div class="brand-title-row">
+              <img src="carrin_and_stone_advisory_logo.jpeg" alt="Carrin & Stone Advisory Logo" class="brand-logo-inline" onerror="this.style.display='none'" loading="eager">
           <h1>Carrin & Stone Advisory</h1>
+            </div>
             <div class="tagline">SEBI Registered Analyst (RA) & Chartered Accountant (CA)</div>
             <div class="subtitle">Your Trusted Partner in Wealth Creation & Tax Optimization</div>
         </div>
